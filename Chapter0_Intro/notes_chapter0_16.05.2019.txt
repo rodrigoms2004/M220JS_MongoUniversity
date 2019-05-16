@@ -1,0 +1,12 @@
+NodeJS
+Express
+MongoDB
+React
+
+
+mongo "mongodb+srv://mflix-qmlul.mongodb.net/test" --username rodrigo
+
+
+MFlix Application Architecture
+
+

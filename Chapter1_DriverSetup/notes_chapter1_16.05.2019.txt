@@ -1,0 +1,71 @@
+- Basic read operations
+- Adding field projections
+- Handling different query predicates
+
+
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+
+sudo apt-get update
+sudo apt-get install mongodb-org-shell mongodb-org-tools
+
+username: m220student
+password: m220password
+
+
+mongo "mongodb+srv://mflix-qmlul.mongodb.net/test" --username <username>
+
+
+mongo "mongodb+srv://mflix-qmlul.mongodb.net/test" --username m220student
+
+
+mongodb+srv://m220student:m220password@mflix-qmlul.mongodb.net
+
+
+# import data into Atlas
+mongorestore --drop --gzip --uri \
+  "mongodb+srv://m220student:m220password@mflix-qmlul.mongodb.net" data
+
+
+
+
+########################################
+MongoClient
+
+Smumary
+
+We can use a MongoClient object to:
+
+- Instantiate a connection to the database
+- Gather information about a database or collection
+- Create direct connections to collections, which we can issue queries against
+
+
+########################################
+Asynchronous Programming
+
+Summary
+
+We saw 3 different ways to handle asynchronous programming with the MongoDB Node driver, callbacks, promises, and async/await
+
+A few things to remember:
+- you should always wrap await statements with a try/catch block
+- if you aren't comfortable with Promises, you can supply a callback to the driver methods that are asynchronous
+- if you don't pass a callback, a Promise with be returned
+
+https://medium.com/front-end-weekly/callbacks-promises-and-async-await-ad4756e01d90
+
+########################################
+Basic reads
+
+Summary
+
+We saw how to limit rhe results to one document or get all documents that match a query filter. We also saw how to include only the
+fields we wanted in the result set, and how to remove the _id field.
+
+A few things to keep in mind:
+- Finding one document typically involves querying on a unique index, such as the _id field.
+- When projecting, by specifying inclusion - {title: 1}  for example - all fields we don't include will be excluded, except for the 
+  _id field. if we don't want the _id field to us we must explicity it, like { title: 1, _id: 0 }
+
